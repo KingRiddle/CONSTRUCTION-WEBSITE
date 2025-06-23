@@ -35,7 +35,131 @@
   <header>
     <h1>About BinaLux</h1>
   </header>
+  <style>
+    .logo {
+      width: 60px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    nav {
+      background-color: #1b263b;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #324a68;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      pointer-events: auto;
+    }
+    nav .dropdown-content a {
+      color: white;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+    }
+    nav .dropdown:hover .dropdown-content,
+    nav .dropdown-content:hover {
+      display: block;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header, footer {
+      background-color: #0d1b2a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .content {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #1b263b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div class="header-content">
+    <img src="https://via.placeholder.com/60x60?text=BL" alt="BinaLux Logo" class="logo">
+    <div>
+      <h1 style="margin: 0;">BinaLux Construction</h1>
+      <p style="margin: 0;">Building Excellence with Elegance</p>
+    </div>
+  </div>
+</header>
 
+<nav>
+  <div class="dropdown">
+    <a>About</a>
+    <div class="dropdown-content">
+      <a href="company.html">Company</a>
+      <a href="team.html">Team</a>
+      <a href="mission.html">Mission</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a>Services</a>
+    <div class="dropdown-content">
+      <a href="residential.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="renovation.html">Renovation</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a>Projects</a>
+    <div class="dropdown-content">
+      <a href="completed.html">Completed</a>
+      <a href="ongoing.html">Ongoing</a>
+      <a href="upcoming.html">Upcoming</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a>Contact</a>
+    <div class="dropdown-content">
+      <a href="call.html">Call</a>
+      <a href="whatsapp.html">WhatsApp</a>
+      <a href="email.html">Email</a>
+    </div>
+  </div>
+</nav>
   <div class="content">
     <h2>Who We Are</h2>
     <p>BinaLux is a Malaysia-based construction company committed to delivering high-quality and innovative building solutions. We specialize in residential, commercial, and renovation projects tailored to our clients' needs.</p>

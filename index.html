@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BinaLux</title>
+  <title>BinaLux Construction</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background-color: #f9f9f9;
+      background-color: #ffbf00;
       color: #333;
     }
     header {
       background-color: #0d1b2a;
       color: #fff;
       padding: 20px 40px;
-      text-align: Centre;
-    }    
+      text-align: center;
+    }
     .logo {
       width: 60px;
       height: auto;
@@ -34,25 +34,63 @@
       background-color: #1b263b;
       padding: 10px 40px;
       display: flex;
-      justify-content: Right;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+    nav .dropdown {
+      position: relative;
     }
     nav a {
-      color: #ffde59;
+      color: #ffffff;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      cursor: pointer;
+    }
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      background-color: #324a68;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+    }
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      backgroud-colour: #324a68;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      pointer-events: auto;
+    }
+    nav .dropdown-content a {
+      colour: light yellow;      
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+      }
+      nav .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      nav .dropdown:hover .dropdown-content {
+     display: block;
     }
     .hero {
-      background: url('https://via.placeholder.com/1200x400?text=BinaLux') Centre/cover no-repeat;
+      background: url('https://via.placeholder.com/1200x400?text=BinaLux+Construction') center/cover no-repeat;
       height: 400px;
       display: flex;
-      align-items: Centre;
-      justify-content: Centre;
-      color: #e5ffb8;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
       font-size: 36px;
       font-weight: bold;
     }
-     .calculator {
+    .calculator {
       padding: 40px;
       background-color: #ffffff;
       max-width: 600px;
@@ -90,38 +128,101 @@
     }
     footer {
       background-color: #0d1b2a;
-      color: Black;
-      text-align: Centre;
-      padding: 10px;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
   </style>
+    nav .dropdown {
+    display: inline-block;
+  }
+
+  nav .dropdown:hover .dropdown-content,
+  nav .dropdown-content:hover {
+    display: block;
+  }
+</style>
+  <script>
+    function calculateCost() {
+      const area = parseFloat(document.getElementById('area').value);
+      const rate = parseFloat(document.getElementById('rate').value);
+      if (!isNaN(area) && !isNaN(rate)) {
+        const total = area * rate;
+        document.getElementById('result').textContent = 'Estimated Cost: RM ' + total.toFixed(2);
+      } else {
+        document.getElementById('result').textContent = 'Please enter valid numbers';
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1>BinaLux</h1>
-    <p>Building Excellence with Elegance</p>
-  </header>
-  
-  <header>
-    <img src="8221e154-8fde-4ad2-95ad-012442ab702d.png" alt="BinaLux" />
-    <h1>BinaLux</h1>
+    <div class="header-content">
+      <img src="https://via.placeholder.com/60x60?text=BL" alt="BinaLux Logo" class="logo">
+      <div>
+        <h1 style="margin: 0;">BinaLux Construction</h1>
+        <p style="margin: 0;">Building Excellence with Elegance</p>
+      </div>
+    </div>
   </header>
 
   <nav>
-    <a href="about.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="services.html">Calculate</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+    <div>
+	<a href="home.html">Home</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a>About</a>
+      <div class="dropdown-content">
+        <a href="company.html">Company</a>
+        <a href="team.html">Team</a>
+        <a href="mission.html">Mission</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a>Services</a>
+      <div class="dropdown-content">
+        <a href="residential.html">Residential</a>
+        <a href="commercial.html">Commercial</a>
+        <a href="renovation.html">Renovation</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a>Projects</a>
+      <div class="dropdown-content">
+        <a href="completed.html">Completed</a>
+        <a href="ongoing.html">Ongoing</a>
+        <a href="upcoming.html">Upcoming</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a>Contact</a>
+      <div class="dropdown-content">
+        <a href="call.html">Call</a>
+        <a href="whatsapp.html">WhatsApp</a>
+        <a href="email.html">Email</a>
+      </div>
+    </div>
   </nav>
 
   <div class="hero">
     Premium Construction. Trusted Quality.
   </div>
 
+  <div class="calculator">
+    <h2>Construction Cost Calculator</h2>
+    <label for="area">Total Build-Up Area (sqft):</label>
+    <input type="number" id="area" placeholder="Enter area in square feet" />
+
+    <label for="rate">Rate per sqft (RM):</label>
+    <input type="number" id="rate" placeholder="Enter rate in RM" />
+
+    <button onclick="calculateCost()">Calculate</button>
+    <div class="calculator-result" id="result"></div>
+  </div>
+
   <footer>
-    <p>&copy; 2025 All rights reserved.SMJ Worldwide & HDD Enterprise.</p>
+    <p>&copy; 2025 BinaLux Construction. Owned by SMJ Worldwide & HDD Enterprise. All rights reserved.</p>
   </footer>
 </body>
 </html>

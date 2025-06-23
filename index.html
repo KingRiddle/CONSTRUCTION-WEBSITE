@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BinaLux Construction</title>
   <style>
+  <style>
+  .option-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .option-boxes .box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+  .option-boxes .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  .option-boxes h3 {
+    margin-top: 0;
+    color: #1b263b;
+  }
+  .option-boxes p {
+    color: #555;
+  }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -193,7 +221,24 @@
       </div>
     </div>
   </nav>
-
+<section class="option-boxes">
+  <div class="box" onclick="location.href='company.html'">
+    <h3>About Us</h3>
+    <p>Learn more about BinaLux and our mission.</p>
+  </div>
+  <div class="box" onclick="location.href='residential.html'">
+    <h3>Residential</h3>
+    <p>Explore our home construction services.</p>
+  </div>
+  <div class="box" onclick="location.href='commercial.html'">
+    <h3>Commercial</h3>
+    <p>See our commercial building expertise.</p>
+  </div>
+  <div class="box" onclick="location.href='contact.html'">
+    <h3>Contact</h3>
+    <p>Get in touch with our team.</p>
+  </div>
+</section>
   <div class="hero">
     Premium Construction. Trusted Quality.
   </div>

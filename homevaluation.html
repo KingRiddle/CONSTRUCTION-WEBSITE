@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valuate Your Home with BinaLux</title>
+  <style>
+    h2, label, input, select, .file-label {
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+    .custom-file {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px auto;
+      padding: 16px 20px;
+      background-color: #e0ffff;
+      border: 2px dashed #008080;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+      width: fit-content;
+      max-width: 90%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FFFFF0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #008080;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .form-container {
+      max-width: 800px;
+      background: #ffffff;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .drag-area {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      background: #f9f9f9;
+      margin-top: 10px;
+    }
+    input[type="submit"] {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      background-color: #008080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type="submit"]:hover {
+      background-color: #006666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Get your current house valuation here</h1>
+  </header>
+  <div class="form-container">
+    <form onsubmit="sendToWhatsApp(); return false;">
+      <h2>🏠 Full Address</h2>
+      <div class="grid-2">
+        <div>
+          <label>House Number</label>
+          <input type="text" name="house_number">
+        </div>
+        <div>
+          <label>Postcode</label>
+          <input type="text" name="postcode">
+        </div>
+      </div>
+      <label>Address Line 1</label>
+      <input type="text" name="address_line1">
+
+      <label>Address Line 2</label>
+      <input type="text" name="address_line2">
+
+      <label>State</label>
+      <input type="text" name="state">
+
+      <label>Country</label>
+      <input type="text" name="country" value="Malaysia" readonly>
+
+      <label class="file-label">Upload Address Pictures</label>
+      <input type="file" name="address_images" accept="image/*" multiple class="custom-file">
+
+      <h2>📸 House In and Out Pictures</h2>
+      <label class="file-label">Upload House Pictures</label>
+      <input type="file" name="house_images" accept="image/*" multiple class="custom-file">
+
+      <h2>📏 House Built-in Size (sqft)</h2>
+      <input type="text" name="house_size">
+
+      <h2>🛏️ Number of Bedrooms and Bathrooms</h2>
+      <div class="grid-2">
+        <div>
+          <label>Bedrooms</label>
+          <input type="number" name="bedrooms" min="1">
+        </div>
+        <div>
+          <label>Bathrooms</label>
+          <input type="number" name="bathrooms" min="1">
+        </div>
+      </div>
+
+      <h2>📄 Freehold or Leasehold</h2>
+      <select name="ownership">
+        <option value="Freehold">Freehold</option>
+        <option value="Leasehold">Leasehold</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+<script>
+  function sendToWhatsApp() {
+    const houseNumber = document.querySelector('[name="house_number"]').value;
+    const postcode = document.querySelector('[name="postcode"]').value;
+    const address1 = document.querySelector('[name="address_line1"]').value;
+    const address2 = document.querySelector('[name="address_line2"]').value;
+    const state = document.querySelector('[name="state"]').value;
+    const houseSize = document.querySelector('[name="house_size"]').value;
+    const bedrooms = document.querySelector('[name="bedrooms"]').value;
+    const bathrooms = document.querySelector('[name="bathrooms"]').value;
+    const ownership = document.querySelector('[name="ownership"]').value;
+
+    const message =
+      `🏠 House Valuation Request
+` +
+      `Address: ${houseNumber}, ${address1}, ${address2}, ${postcode}, ${state}, Malaysia
+` +
+      `📏 Size: ${houseSize} sqft
+` +
+      `🛏️ Bedrooms: ${bedrooms}, Bathrooms: ${bathrooms}
+` +
+      `📄 Ownership: ${ownership}`;
+
+    const whatsappURL = `https://wa.me/60194345197?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+  }
+</script>
+</body>
+</html>
